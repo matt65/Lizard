@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Terrarium Monitor</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+        <link href="/static/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta http-equiv="refresh" content="100">
+    </head>
+    <body>
+        <script src="/static/jquery.min.js"></script>
+        <script src="/static/bootstrap.min.js"></script>
+
+        <!-- Index template                            -->
+        <!-- Used by mainweb.py to generate index page -->
+
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        {% if data['user'] %}
+                            <li><a href="/settings">Settings</a></li>
+                            <li><a href="/logout" >Logout {{ data['user'] }}</a></li>
+                        {% else %}
+                            <li><a href="/login">Login</a></li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page-header">
+            <h2>Terrarium Monitor</h2>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col col-md-8">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h2>{{data['t1']}}&deg;{{data['tempMeasurement']}}</h2>
+                                <span class="text-muted">Hot-Side</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <h2>{{data['t2']}}&deg;{{data['tempMeasurement']}}</h2>
+                                <span class="text-muted">Cold-Side</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <img src="/static/{{data['lightStatus']}}" alt="Light is on" />
+                            </div>
+                            <div class="col-xs-6">
+                                <img src="/static/{{data['heaterStatus']}}" alt="Heat lamp is off" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-4">
+                        <div class="col-xs-6 col-md-10">
+                            <div class="text-center" style="background-color: #FFAE19;">
+                                <img src="/static/sunrise.png" alt="sunrise" width="80px" />
+                                <h3 style="color: #FFFFFF; margin-top: 3px;">{{data['sunrise']}}</h3>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-10">
+                            <div class="text-center" style="background-color: #000000;">
+                                <img src="/static/sunset.png" alt="sunset" width="80px" />
+                                <h3 style="color: #FFFFFF; margin-top: 3px;">{{data['sunset']}}</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="footnote text-center">Updated {{ data['ts'] }}</p>
+    </body>
+</html>

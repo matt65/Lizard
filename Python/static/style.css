@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+  body {width:800px;margin:50px auto;}
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+#flash {margin:1em 0px;}
+#pumpStatus {margin:1em 0px;}
+#schedulelink  {margin:1em 0px;}
+
+.temp {font-size: 45px;}
+.round {	border-radius: 24px;}
+.footnote {color:#ccc;}
+.checkbox label {padding-right:10px;padding-bottom:10px}
+
+
+.navbar, .navbar-inverse {
+	border-radius: 0;
+	border: none;
+	margin-bottom: 0;
+	min-height: 80px;
+}
+
+.nav li {
+	display: inline;
+	color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: #ffffff;
+	font-family: Lato;
+	font-size: 1.7em;
+	font-weight: 300;
+	padding: 30px 25px 33px 25px;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+	background-color: #444444;
+	transition: 0.7s all linear;
+	height: 100%;
+}
