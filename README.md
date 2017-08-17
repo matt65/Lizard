@@ -1,7 +1,7 @@
-# Lizzard
-Lizzard Terrarium environment monitor
+# Lizard
+Lizard Terrarium environment monitor
 
-This project is to create a system to monitor the environment of our pet lizzard.  The aims of this project was to:
+This project is to create a system to monitor the environment of our pet lizard.  The aims of this project was to:
 
 * Monitor the temperature on the hot and cold side of the enclosure
 * Turn on and off the UV light according to the sunrise and sunset
